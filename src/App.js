@@ -4,6 +4,7 @@ import { Physics } from '@react-three/cannon'
 import { Ground } from './components/Ground'
 import { Player } from './components/Player'
 import { FPV } from './components/FPV'
+import { Cubes } from './components/Cubes'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Physics>
           <Ground />
           <Player />
+          <Cubes />
         </Physics>
       </Canvas>
       <div className='absolute centered cursor'>+</div>
