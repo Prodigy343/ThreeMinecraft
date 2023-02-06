@@ -8,7 +8,6 @@ export const Cube = ({ pos: position, texture }) => {
     }))
 
     const activeTexture = textures[texture + 'Texture']
-    console.log('activeTexture', activeTexture)
 
     return (
         <mesh ref={ref}>

@@ -31,38 +31,26 @@ export const useKeyboard = () => {
         texture5: false,
     })
 
-    const handleKeyDown = useCallback((e) => {
+    const handleKey = useCallback((e, press = true) => {
         const action = actionByKey(e.code)
         if(action){
             setActions((prev) => {
                 return ({
                     ...prev,
-                    [action]: true
-                })
-            })
-        }
-    }, [])
-
-    const handleKeyUp = useCallback((e) => {
-        const action = actionByKey(e.code)
-        if(action){
-            setActions((prev) => {
-                return ({
-                    ...prev,
-                    [action]: false
+                    [action]: press
                 })
             })
         }
     }, [])
 
     useEffect(() => {
-        document.addEventListener('keydown', handleKeyDown)
-        document.addEventListener('keyup', handleKeyUp)
+        document.addEventListener('keydown', (e) => handleKey(e))
+        document.addEventListener('keyup', (e) => handleKey(e,false))
         return () => {
-            document.removeEventListener('keydown', handleKeyDown)
-            document.removeEventListener('keyup', handleKeyUp)
+            document.removeEventListener('keydown', handleKey)
+            document.removeEventListener('keyup', handleKey(false))
         }
-    }, [handleKeyDown,handleKeyUp])
+    }, [handleKey])
 
     return actions
 }
