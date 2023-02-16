@@ -4,7 +4,7 @@ import { useStore } from '../hooks/useStore'
 
 export const Ground = () => {
     const [ref] = usePlane(() => ({
-        rotation: [-Math.PI/2,0,0], position: [0,0,0]
+        rotation: [-Math.PI/2,0,0], position: [0,-0.5,0]
     }))
     const [addCube] = useStore((state) => [state.addCube])
 
@@ -12,7 +12,10 @@ export const Ground = () => {
 
     const groundClick = (e) => {
         e.stopPropagation()
+        console.log("groundClick")
+        console.log(e.point)
         const [x,y,z] = Object.values(e.point).map(value => Math.ceil(value))
+        console.log(x,y,z)
         addCube(x,y,z)
     }
 

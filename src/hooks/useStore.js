@@ -6,7 +6,6 @@ export const useStore = create((set) => ({
     cubes: [],
     addCube: (x,y,z) => {
         set((prev) => ({
-            ...prev,
             cubes: [
                 ...prev.cubes,
                 {
