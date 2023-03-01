@@ -12,10 +12,10 @@ export const Ground = () => {
 
     const groundClick = (e) => {
         e.stopPropagation()
-        console.log("groundClick")
-        console.log(e.point)
+        //console.log("groundClick")
+        //console.log(e.point)
         const [x,y,z] = Object.values(e.point).map(value => Math.ceil(value))
-        console.log(x,y,z)
+        //console.log(x,y,z)
         addCube(x,y,z)
     }
 
