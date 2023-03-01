@@ -14,9 +14,9 @@ export const Ground = () => {
         e.stopPropagation()
         //console.log("groundClick")
         //console.log(e.point)
-        const [x,y,z] = Object.values(e.point).map(value => Math.ceil(value))
+        const [x,y,z] = Object.values(e.point).map(value => value)
         //console.log(x,y,z)
-        addCube(x,y,z)
+        addCube(Math.round(x),Math.ceil(y),Math.round(z))
     }
 
     return (
