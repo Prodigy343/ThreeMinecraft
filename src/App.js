@@ -39,7 +39,16 @@ function App() {
 
   return (
     <>
-      <Canvas>
+      <Canvas
+        raycaster={{
+          computeOffsets: (_, { size: { width, height } }) => {
+            return ({
+              offsetX: width / 2,
+              offsetY: height / 2
+            })
+          }
+        }}
+      >
         <Sky sunPosition={[100,100,20]} />
         <ambientLight intensity={0.5} />
         <FPV mouseRef={mouse} />

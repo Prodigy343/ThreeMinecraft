@@ -1,13 +1,14 @@
 import { PointerLockControls } from "@react-three/drei"
 import { useThree } from "@react-three/fiber"
-import { useRef } from "react"
+import { useEffect } from "react"
 
 export const FPV = () => {
-    const { camera, gl } = useThree()
-    const controlsRef = useRef(null)
+    const { camera, gl, pointer } = useThree()
+
+    useEffect(() => console.log(pointer))
 
     return (<PointerLockControls
-        ref={controlsRef}
         args={[camera, gl.domElement]}
+        makeDefault={false}
     />)
 }
