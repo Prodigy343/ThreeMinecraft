@@ -50,7 +50,8 @@ export const Player = () => {
 
         api.velocity.set(direction.x, vel.current[1], direction.z)
 
-        if(jump && Math.abs(vel.current[1]) < 0.0005){
+        //TODO: define a good logic for jumps
+        if(jump && Math.abs(vel.current[1]) < 0.1){
             api.velocity.set(vel.current[0], JUMP_FORCE, vel.current[2])
         }
     })

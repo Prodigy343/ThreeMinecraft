@@ -13,8 +13,36 @@ export const Cube = ({ pos: position, texture }) => {
 
     const cubeClick = (e) => {
         e.stopPropagation()
-        const clickedFace = Math.floor(e.faceIndex)
-        console.log(clickedFace)
+        const clickedFace = Math.floor(e.faceIndex / 2)
+        const {x,y,z} = ref.current.position
+        if(e.button === 2){
+            removeCube(x,y,z)
+            return
+        }
+        if(clickedFace === 0){
+            addCube(x+1, y, z)
+            return
+        }
+        if(clickedFace === 1){
+            addCube(x-1, y, z)
+            return
+        }
+        if(clickedFace === 2){
+            addCube(x, y+1, z)
+            return
+        }
+        if(clickedFace === 3){
+            addCube(x, y-1, z)
+            return
+        }
+        if(clickedFace === 4){
+            addCube(x, y, z+1)
+            return
+        }
+        if(clickedFace === 5){
+            addCube(x, y, z-1)
+            return
+        }
     }
     
 
